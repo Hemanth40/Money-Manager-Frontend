@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { TrendingUp, Calendar, ChevronDown } from 'lucide-react';
 import { useTransactions } from '../context/TransactionContext';
@@ -78,8 +79,8 @@ export default function Dashboard() {
                             key={period}
                             onClick={() => setFilters({ ...filters, period })}
                             className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-all duration-300 ${filters.period === period
-                                    ? 'bg-white shadow-glass-sm text-primary-600'
-                                    : 'text-gray-500 hover:text-gray-700'
+                                ? 'bg-white shadow-glass-sm text-primary-600'
+                                : 'text-gray-500 hover:text-gray-700'
                                 }`}
                         >
                             {period}ly
@@ -216,9 +217,9 @@ export default function Dashboard() {
                         <Calendar className="w-5 h-5 text-primary-500" />
                         Recent Transactions
                     </h2>
-                    <a href="/transactions" className="text-sm text-primary-600 hover:text-primary-700 font-medium">
+                    <Link to="/transactions" className="text-sm text-primary-600 hover:text-primary-700 font-medium">
                         View All →
-                    </a>
+                    </Link>
                 </div>
 
                 {recentTransactions.length > 0 ? (
